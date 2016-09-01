@@ -1,35 +1,49 @@
 package ar.fiuba.tdd.tp0.node;
 
 public class HeaderNode<T> implements Node<T> {
-    private Node<T> firstNode = new EmptyNode<>();
+    private Node<T> node;
+
+    public HeaderNode(Node<T> header) {
+        node = header;
+    }
 
     @Override
     public T getElement() {
-        return firstNode.getElement();
+        return node.getElement();
     }
 
     @Override
     public Node<T> getNext() {
-        return firstNode.getNext();
+        return node.getNext();
     }
 
     @Override
     public int count() {
-        return firstNode.count();
+        return node.count();
     }
 
     @Override
     public boolean isEmpty() {
-        return firstNode.isEmpty();
+        return node.isEmpty();
     }
 
     @Override
     public Node<T> setNext(Node<T> node) {
-        return firstNode = node;
+        return this.node = node;
     }
 
-    public void remove() {
-        firstNode = firstNode.getNext();
+    @Override
+    public void remove(Node<T> previous) {
+        throw new AssertionError();
+    }
+
+    @Override
+    public void setPrevious(Node<T> previous) {
+        throw new AssertionError();
+    }
+
+    public void removeFirst() {
+        node.remove(this);
     }
 
 }

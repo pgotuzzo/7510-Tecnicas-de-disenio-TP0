@@ -68,4 +68,21 @@ public class LinkedListTests {
         }
     }
 
+    @Test
+    public void testIntegration() {
+        int firstItem = random.nextInt();
+        int secondItem = random.nextInt();
+        intQueue.add(firstItem);
+        intQueue.add(secondItem);
+        Assert.assertEquals(intQueue.top(), firstItem, 0);
+        Assert.assertEquals(intQueue.size(), 2, 0);
+        intQueue.remove();
+        Assert.assertEquals(intQueue.top(), secondItem, 0);
+        Assert.assertEquals(intQueue.size(), 1, 0);
+
+        int thirdItem = random.nextInt();
+        intQueue.add(thirdItem);
+        Assert.assertEquals(intQueue.size(), 2, 0);
+    }
+
 }

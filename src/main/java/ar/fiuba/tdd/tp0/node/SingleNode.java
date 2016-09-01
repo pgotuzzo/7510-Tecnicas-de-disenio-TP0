@@ -32,4 +32,15 @@ public class SingleNode<T> implements Node<T> {
     public Node<T> setNext(Node<T> node) {
         return nextNode = node;
     }
+
+    @Override
+    public void remove(Node<T> previous) {
+        previous.setNext(nextNode).setPrevious(previous);
+    }
+
+    @Override
+    public void setPrevious(Node<T> previous) {
+        // no op;
+    }
+
 }

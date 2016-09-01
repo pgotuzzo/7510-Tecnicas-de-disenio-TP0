@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.tp0.node;
 
-class EmptyNode<T> implements Node<T> {
+public class EmptyNode<T> implements Node<T> {
     @Override
     public T getElement() {
         throw new AssertionError();
@@ -23,6 +23,16 @@ class EmptyNode<T> implements Node<T> {
 
     @Override
     public Node<T> setNext(Node<T> node) {
+        throw new AssertionError();
+    }
+
+    @Override
+    public void remove(Node<T> previous) {
+        throw new AssertionError();
+    }
+
+    @Override
+    public void setPrevious(Node<T> previous) {
         throw new AssertionError();
     }
 }

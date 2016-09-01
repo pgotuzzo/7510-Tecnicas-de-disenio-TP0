@@ -7,7 +7,12 @@ public class TailNode<T> extends EmptyNode<T> {
         previous = node;
     }
 
+    @Override
+    public void setPrevious(Node<T> previous) {
+        this.previous = previous;
+    }
+
     public void add(Node<T> node) {
-        previous = previous.setNext(node);
+        previous.setNext(node).setNext(this).setPrevious(node);
     }
 }

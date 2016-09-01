@@ -1,15 +1,16 @@
 package ar.fiuba.tdd.tp0;
 
+import ar.fiuba.tdd.tp0.node.EmptyNode;
 import ar.fiuba.tdd.tp0.node.HeaderNode;
 import ar.fiuba.tdd.tp0.node.SingleNode;
 import ar.fiuba.tdd.tp0.node.TailNode;
 
 class LinkedList<T> implements Queue<T> {
-    private HeaderNode<T> header = new HeaderNode<>();
-    private TailNode<T> tail;
+    private HeaderNode<T> header = new HeaderNode<>(new EmptyNode<>());
+    private TailNode<T> tail = new TailNode<>(header);
 
     LinkedList() {
-        tail = new TailNode<>(header);
+        header.setNext(tail);
     }
 
     @Override
@@ -29,7 +30,7 @@ class LinkedList<T> implements Queue<T> {
 
     @Override
     public void remove() {
-        header.remove();
+        header.removeFirst();
     }
 
     @Override
